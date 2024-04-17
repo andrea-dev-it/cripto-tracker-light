@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { ICoin } from '../../../models/interfaces/coin';
 import { OverviewComponent } from './overview/overview.component';
 
 @Component({
@@ -8,4 +9,6 @@ import { OverviewComponent } from './overview/overview.component';
   templateUrl: './portfolio-list.component.html',
   styleUrl: './portfolio-list.component.less',
 })
-export class PortfolioListComponent {}
+export class PortfolioListComponent {
+  portfolioList = input.required<ICoin[]>();
+}

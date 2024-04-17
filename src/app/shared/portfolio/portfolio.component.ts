@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
-import { IPortfolioStats } from '../../models/interfaces/portfolio-stats';
+import { Component } from '@angular/core';
+
+import { PortfolioBinancePasquale } from '../../core/services/data/binance-pasquale.service';
 import { PortfolioListComponent } from './portfolio-list/portfolio-list.component';
 import { PortfolioOverviewComponent } from './portfolio-overview/portfolio-overview.component';
 
@@ -11,9 +12,8 @@ import { PortfolioOverviewComponent } from './portfolio-overview/portfolio-overv
   styleUrl: './portfolio.component.less',
 })
 export class PortfolioComponent {
-  protected portfolioStats = signal<IPortfolioStats>({
-    gifts: 0,
-    totalFees: 0,
-    totalDeposits: 1000,
-  });
+  protected portfolioStats = this.portfolioBinancePasquale.portfolioStats;
+  protected portfolioList = this.portfolioBinancePasquale.portfolioList;
+
+  constructor(private portfolioBinancePasquale: PortfolioBinancePasquale) {}
 }

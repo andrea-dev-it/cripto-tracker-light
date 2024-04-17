@@ -36,22 +36,24 @@
           }"
         >
           <div class="home-balance-current-gain-icon">
-            <i
+            @if(portfolioStats().profits! > 0){<i
               class="fa-solid fa-caret-up"
               [ngStyle]="{ color: '#04dc00' }"
-              *ngIf="portfolioStats()?.portfolioStats?.profits > 0"
-            ></i>
+            ></i
+            >}
+
             <div
               class="home-balance-current-gain-icon-down"
               [ngStyle]="{ marginBottom: '1.2rem' }"
             >
+              @if(portfolioStats().profits! < 0){
               <i
                 class="fa-solid fa-caret-down"
-                *ngIf="portfolioStats()?.portfolioStats?.profits < 0"
                 [ngStyle]="{
                   color: 'red'
                 }"
-              ></i>
+              ></i
+              >}
             </div>
           </div>
           <div

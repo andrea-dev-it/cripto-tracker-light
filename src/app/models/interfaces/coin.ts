@@ -4,13 +4,13 @@ export interface ICoin {
   logo: string;
   quantity: number;
   deposits: number;
-  depositsPerc?: number;
-  current?: number;
+  depositsPerc: number;
+  current: number;
   currentPerc?: number;
-  price?: number;
-  averagePrice?: number;
-  profits?: number;
-  profitsPerc?: number;
+  price: number;
+  averagePrice: number;
+  profits: number;
+  profitsPerc: number;
   earnQuantity?: number;
   earn?: number;
 }

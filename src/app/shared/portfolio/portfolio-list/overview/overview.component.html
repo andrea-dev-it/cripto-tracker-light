@@ -1,12 +1,74 @@
 <div class="crypto-list-header">
-  <div class="crypto-list-header-name">Crypto</div>
+  <div class="crypto-list-header-name">Cripto</div>
   <div class="crypto-list-header-deposit" (click)="onSortDepositClick()">
-    Deposit @if(currentSorting == 'deposits'){
+    Depositi @if(currentSorting() == 'deposits'){
     <i class="fa-solid fa-caret-down"></i>}
   </div>
-  <div class="crypto-list-header-price">Price/Avg</div>
+  <div class="crypto-list-header-price">Prezzo</div>
   <div class="crypto-list-header-profit" (click)="onSortProfitClick()">
-    Profit @if(currentSorting == 'profits' || currentSorting == 'profitsPerc')
-    {<i class="fa-solid fa-caret-down"></i>}
+    Profitto @if(currentSorting() == 'profits' || currentSorting() ==
+    'profitsPerc') {<i class="fa-solid fa-caret-down"></i>}
   </div>
 </div>
+
+@for(coin of sortedCoins(); track coin.ticker){
+<div class="crypto-list-table">
+  <div class="crypto-list-table-logo">
+    <img src="{{ coin.logo }}" />
+  </div>
+  <div class="crypto-list-table-name">
+    {{ coin.name }}
+  </div>
+  <div class="crypto-list-table-ticker">
+    {{ coin.ticker }}
+  </div>
+  <div class="crypto-list-table-deposit">
+    {{ coin.deposits | depositsNoDecimal }}
+  </div>
+  <div class="crypto-list-table-price">
+    @if(coin.ticker == 'BTC' || coin.ticker == 'ETH'){
+    {{ coin.price | depositsNoDecimal }}} @if(coin.ticker != 'BTC' &&
+    coin.ticker != 'ETH'){ {{ coin.price | deposits }}}
+  </div>
+  <div class="crypto-list-table-avgPrice">
+    @if(coin.ticker == 'BTC' || coin.ticker == 'ETH'){
+    {{ coin.averagePrice | depositsNoDecimal }}} @if(coin.ticker != 'BTC' &&
+    coin.ticker != 'ETH'){
+    {{ coin.averagePrice > 0 ? (coin.averagePrice | deposits) : "" }}
+    }
+  </div>
+  <div
+    class="crypto-list-table-gain"
+    [ngStyle]="{ color: coin.profits > 0 ? '#04dc00' : 'red' }"
+  >
+    {{ coin.profits | profitsNoDecimal }}
+  </div>
+  <div
+    class="crypto-list-table-gainPercent"
+    [ngStyle]="{
+      backgroundColor:
+        coin.profits > 0 ? 'rgba(0, 100, 0, 0.4)' : 'rgba(100, 0, 0, 0.4)'
+    }"
+  >
+    <div class="crypto-list-table-gainPercent-icon">
+      @if(coin.profits > 0){ <i class="fa-solid fa-caret-up"></i>}
+      @if(coin.profits < 0){
+      <i
+        class="fa-solid fa-caret-down"
+        [ngStyle]="{
+          color: 'red'
+        }"
+      ></i
+      >}
+    </div>
+    <div
+      class="crypto-list-table-gainPercent-number"
+      [ngStyle]="{
+            color: coin.profits > 0 ? '#04dc00' : 'red',
+          }"
+    >
+      {{ coin.profitsPerc | profitsPerc }}
+    </div>
+  </div>
+</div>
+}

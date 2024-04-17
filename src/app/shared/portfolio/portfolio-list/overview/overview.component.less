@@ -4,6 +4,7 @@
   grid-template-columns: 34px 34% 17.3% 20.5% auto;
   width: 100%;
   margin: 1rem 0 0rem 0;
+  padding: 0 1rem;
   font-size: 1.4rem;
   color: #5b5b5b;
   // border-bottom: 1px solid #282828;
@@ -35,5 +36,117 @@
     grid-column: 5/6;
     justify-self: end;
     cursor: pointer;
+  }
+}
+
+.crypto-list-table {
+  display: grid;
+  grid-template-rows: 17px 17px;
+  grid-template-columns: 34px 34% 16.6% 20.5% auto;
+  padding: 0 1rem;
+  margin-top: 1.2rem;
+  width: 100%;
+  row-gap: 0.3rem;
+  // border-bottom: 1px solid #1b1b1b;
+  padding-bottom: 0.8rem;
+  // border-radius: 15px;
+  // background-color: rgb(17, 17, 17);
+  // padding: 1rem;
+
+  &-logo {
+    grid-row: 1/3;
+    grid-column: 1/2;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    // height: 100%;
+    margin-top: 0.3rem;
+    margin-left: 0.2rem;
+    cursor: pointer;
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-name {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    justify-self: start;
+    align-self: center;
+    font-size: 1.6rem;
+    padding-left: 0.7rem;
+    cursor: pointer;
+  }
+
+  &-ticker {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    justify-self: start;
+    align-self: center;
+    font-size: 1.4rem;
+    padding-left: 0.7rem;
+    color: #5b5b5b;
+    cursor: pointer;
+  }
+
+  &-deposit {
+    grid-row: 1/2;
+    grid-column: 3/4;
+    align-self: center;
+    justify-self: end;
+    font-size: 1.4rem;
+  }
+
+  &-price {
+    grid-row: 1/2;
+    grid-column: 4/5;
+    justify-self: end;
+    align-self: center;
+    font-size: 1.4rem;
+  }
+
+  &-avgPrice {
+    grid-row: 2/3;
+    grid-column: 4/5;
+    justify-self: end;
+    align-self: center;
+    font-size: 1.4rem;
+    color: #008fe4;
+  }
+
+  &-gain {
+    grid-row: 1/2;
+    grid-column: 5/6;
+    justify-self: end;
+    align-self: center;
+    font-size: 1.6rem;
+  }
+
+  &-gainPercent {
+    grid-row: 2/3;
+    grid-column: 5/6;
+    align-self: end;
+    justify-self: end;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 100, 0, 0.6);
+    color: #04dc00;
+    border-radius: 15px;
+    padding: 0.15rem 0.8rem;
+
+    &-icon {
+      margin-right: 0.45rem;
+
+      & i {
+        padding-top: 0.25rem;
+        font-size: 1rem;
+      }
+    }
+
+    &-number {
+      font-size: 1.2rem;
+    }
   }
 }
