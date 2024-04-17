@@ -1,0 +1,11 @@
+# CHANGELOG
+
+Release Schedule
+
+- Patch release: Patch version for routine Bugfix (anytime for urgent bugfix).
+- Minor release: New features have been added, Optimization. (Backwards compatible)
+- Major version: For Breaking Change, Significant Upgrade. (No Backwards compatible).
+
+# 0.0.1
+
+- Initialize project

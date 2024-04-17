@@ -1,0 +1,92 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false,
+    "cache": {
+      "enabled": false
+    }
+  },
+  "newProjectRoot": "projects",
+  "projects": {
+    "crypto-light": {
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "configurations": {
+            "development": {
+              "extractLicenses": false,
+              "optimization": false,
+              "sourceMap": true
+            },
+            "production": {
+              "budgets": [
+                {
+                  "maximumError": "5mb",
+                  "maximumWarning": "2mb",
+                  "type": "initial"
+                },
+                {
+                  "maximumError": "10kb",
+                  "maximumWarning": "6kb",
+                  "type": "anyComponentStyle"
+                }
+              ],
+              "outputHashing": "all"
+            }
+          },
+          "defaultConfiguration": "production",
+          "options": {
+            "assets": ["src/favicon.ico", "src/assets"],
+            "browser": "src/main.ts",
+            "index": "src/index.html",
+            "inlineStyleLanguage": "less",
+            "outputPath": "dist/crypto-light",
+            "polyfills": ["zone.js"],
+            "scripts": [],
+            "styles": ["src/styles.less"],
+            "tsConfig": "tsconfig.app.json"
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "crypto-light:build"
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "development": {
+              "buildTarget": "crypto-light:build:development"
+            },
+            "production": {
+              "buildTarget": "crypto-light:build:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "assets": ["src/favicon.ico", "src/assets"],
+            "inlineStyleLanguage": "less",
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "scripts": [],
+            "styles": ["src/styles.less"],
+            "tsConfig": "tsconfig.spec.json"
+          }
+        }
+      },
+      "prefix": "app",
+      "projectType": "application",
+      "root": "",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      },
+      "sourceRoot": "src"
+    }
+  },
+  "version": 1
+}
