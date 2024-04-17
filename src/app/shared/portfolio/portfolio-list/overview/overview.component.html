@@ -1,0 +1,12 @@
+<div class="crypto-list-header">
+  <div class="crypto-list-header-name">Crypto</div>
+  <div class="crypto-list-header-deposit" (click)="onSortDepositClick()">
+    Deposit @if(currentSorting == 'deposits'){
+    <i class="fa-solid fa-caret-down"></i>}
+  </div>
+  <div class="crypto-list-header-price">Price/Avg</div>
+  <div class="crypto-list-header-profit" (click)="onSortProfitClick()">
+    Profit @if(currentSorting == 'profits' || currentSorting == 'profitsPerc')
+    {<i class="fa-solid fa-caret-down"></i>}
+  </div>
+</div>

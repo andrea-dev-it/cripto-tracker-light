@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { PortfolioComponent } from '../../shared/portfolio/portfolio.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [PortfolioComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.less'
+  styleUrl: './home.component.less',
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}

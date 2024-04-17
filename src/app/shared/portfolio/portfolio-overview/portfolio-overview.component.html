@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="card">
+    <div class="card-logo">
+      <div class="card-logo-img1">
+        <img
+          src="/assets/img/cripto-logo/btc.png"
+          alt="PAC"
+          [ngStyle]="{
+              width: '40px',
+              marginRight: '-0.7rem',
+            }"
+        />
+        <img
+          src="/assets/img/cripto-logo/eth.png"
+          alt="PAC"
+          [ngStyle]="{ width: '40px', marginRight: '-0.7rem' }"
+        />
+        <img
+          src="/assets/img/cripto-logo/sol.png"
+          alt="PAC"
+          [ngStyle]="{ width: '40px' }"
+        />
+      </div>
+    </div>
+    <div class="home-balance">
+      <div class="home-balance-title">Attuale</div>
+      <div class="home-balance-current">
+        {{ portfolioStats().current! | depositsNoDecimal }}
+        <div
+          class="home-balance-current-gain"
+          [ngStyle]="{
+            backgroundColor:
+              portfolioStats().profits! > 0
+                ? 'rgba(0, 100, 0, 0.5)'
+                : 'rgba(100, 0, 0, 0.5)'
+          }"
+        >
+          <div class="home-balance-current-gain-icon">
+            <i
+              class="fa-solid fa-caret-up"
+              [ngStyle]="{ color: '#04dc00' }"
+              *ngIf="portfolioStats()?.portfolioStats?.profits > 0"
+            ></i>
+            <div
+              class="home-balance-current-gain-icon-down"
+              [ngStyle]="{ marginBottom: '1.2rem' }"
+            >
+              <i
+                class="fa-solid fa-caret-down"
+                *ngIf="portfolioStats()?.portfolioStats?.profits < 0"
+                [ngStyle]="{
+                  color: 'red'
+                }"
+              ></i>
+            </div>
+          </div>
+          <div
+            class="home-balance-current-gain-number"
+            [ngStyle]="{
+              color: portfolioStats().profits! > 0 ? '#04dc00' : 'red'
+            }"
+          >
+            {{ portfolioStats().profitsPerc! | profitsPerc }}
+          </div>
+        </div>
+      </div>
+      <div class="home-balance-profit-title">Profitto</div>
+      <div
+        class="home-balance-profit"
+        [ngStyle]="{
+          color: portfolioStats().profits! > 0 ? '#04dc00' : 'red'
+        }"
+      >
+        {{ portfolioStats().profits! | profitsNoDecimal }}
+      </div>
+    </div>
+    <div class="home-deposits">
+      <div class="home-deposits-title">Depositi</div>
+      <div class="home-deposits-current">
+        {{ portfolioStats().totalDeposits! | depositsNoDecimal }}
+      </div>
+      <div class="home-deposits-fees-title">Commissioni</div>
+      <div class="home-deposits-fees-number">
+        -
+        {{ portfolioStats().totalFees | depositsNoDecimal }}
+      </div>
+    </div>
+  </div>
+</div>

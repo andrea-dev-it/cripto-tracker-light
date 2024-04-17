@@ -1,0 +1,39 @@
+.crypto-list-header {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 34px 34% 17.3% 20.5% auto;
+  width: 100%;
+  margin: 1rem 0 0rem 0;
+  font-size: 1.4rem;
+  color: #5b5b5b;
+  // border-bottom: 1px solid #282828;
+
+  &-name,
+  &-price,
+  &-profit,
+  &-deposit {
+    align-self: center;
+  }
+
+  &-name {
+    grid-column: 2/3;
+    padding-left: 0.7rem;
+  }
+
+  &-price {
+    grid-column: 4/5;
+    justify-self: end;
+  }
+
+  &-deposit {
+    grid-column: 3/4;
+    justify-self: end;
+    cursor: pointer;
+  }
+
+  &-profit {
+    grid-column: 5/6;
+    justify-self: end;
+    cursor: pointer;
+  }
+}
