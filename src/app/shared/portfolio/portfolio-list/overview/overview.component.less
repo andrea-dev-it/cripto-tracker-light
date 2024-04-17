@@ -1,8 +1,9 @@
 .crypto-list-header {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 34px 34% 17.3% 20.5% auto;
+  grid-template-columns: 34px 33% 17.3% 20.5% auto;
   width: 100%;
+  row-gap: 0.3rem;
   margin: 1rem 0 0rem 0;
   padding: 0 1rem;
   font-size: 1.4rem;
@@ -21,13 +22,33 @@
     padding-left: 0.7rem;
   }
 
+  &-ticker {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    padding-left: 0.7rem;
+  }
+
   &-price {
     grid-column: 4/5;
     justify-self: end;
   }
 
+  &-avg-price {
+    grid-column: 4/5;
+    grid-row: 2/3;
+    justify-self: end;
+  }
+
+  &-current {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    justify-self: end;
+    cursor: pointer;
+  }
+
   &-deposit {
     grid-column: 3/4;
+    grid-row: 2/3;
     justify-self: end;
     cursor: pointer;
   }
@@ -37,12 +58,20 @@
     justify-self: end;
     cursor: pointer;
   }
+
+
+  &-profit-perc {
+    grid-column: 5/6;
+    grid-row: 2/3;
+    justify-self: end;
+    cursor: pointer;
+  }
 }
 
 .crypto-list-table {
   display: grid;
   grid-template-rows: 17px 17px;
-  grid-template-columns: 34px 34% 16.6% 20.5% auto;
+  grid-template-columns: 34px 33% 16.6% 20.5% auto;
   padding: 0 1rem;
   margin-top: 1.2rem;
   width: 100%;
@@ -91,12 +120,22 @@
     cursor: pointer;
   }
 
-  &-deposit {
+
+  &-current {
     grid-row: 1/2;
     grid-column: 3/4;
     align-self: center;
     justify-self: end;
     font-size: 1.4rem;
+  }
+
+  &-deposit {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    align-self: center;
+    justify-self: end;
+    font-size: 1.4rem;
+    color: #008fe4;
   }
 
   &-price {
@@ -121,7 +160,7 @@
     grid-column: 5/6;
     justify-self: end;
     align-self: center;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   &-gainPercent {

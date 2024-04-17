@@ -6,7 +6,7 @@ export class InitializeService {
   constructor(private portfolioBinancePasquale: PortfolioBinancePasquale) {}
   initPortfolio() {
     return new Promise((resolve) => {
-      this.portfolioBinancePasquale.getPortofolioData();
+      this.portfolioBinancePasquale.getPortfolioData();
       resolve(true);
     });
   }

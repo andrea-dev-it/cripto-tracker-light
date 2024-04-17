@@ -6,6 +6,12 @@ Release Schedule
 - Minor release: New features have been added, Optimization. (Backwards compatible)
 - Major version: For Breaking Change, Significant Upgrade. (No Backwards compatible).
 
+# 0.3.0
+
+- Added **loader-spinner** component
+- Updated **initialize, binance-pasquale** services
+- Added **generic-utils** utils
+
 # 0.2.0
 
 - Added **google-sheet, initialize** services

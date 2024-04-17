@@ -34,6 +34,8 @@ export class OverviewComponent {
         );
       case 'deposits':
         return this.portfolioList().sort((a, b) => b.deposits - a.deposits);
+      case 'current':
+        return this.portfolioList().sort((a, b) => b.current - a.current);
       default:
         return this.portfolioList();
     }
@@ -42,10 +44,13 @@ export class OverviewComponent {
   onSortDepositClick() {
     this.currentSorting.set('deposits');
   }
-
+  onSortCurrentClick() {
+    this.currentSorting.set('current');
+  }
+  onSortProfitPercClick() {
+    this.currentSorting.set('profitsPerc');
+  }
   onSortProfitClick() {
-    this.currentSorting() == 'profits'
-      ? this.currentSorting.set('profitsPerc')
-      : this.currentSorting.set('profits');
+    this.currentSorting.set('profits');
   }
 }

@@ -1,13 +1,25 @@
 <div class="crypto-list-header">
   <div class="crypto-list-header-name">Cripto</div>
+  <div class="crypto-list-header-ticker">Ticker</div>
+  <div class="crypto-list-header-current" (click)="onSortCurrentClick()">
+    Attuale @if(currentSorting() == 'current'){
+    <i class="fa-solid fa-caret-down"></i>}
+  </div>
   <div class="crypto-list-header-deposit" (click)="onSortDepositClick()">
     Depositi @if(currentSorting() == 'deposits'){
     <i class="fa-solid fa-caret-down"></i>}
   </div>
   <div class="crypto-list-header-price">Prezzo</div>
+  <div class="crypto-list-header-avg-price">Prezzo M.</div>
   <div class="crypto-list-header-profit" (click)="onSortProfitClick()">
-    Profitto @if(currentSorting() == 'profits' || currentSorting() ==
-    'profitsPerc') {<i class="fa-solid fa-caret-down"></i>}
+    Profitto @if(currentSorting() == 'profits') {<i
+      class="fa-solid fa-caret-down"
+    ></i
+    >}
+  </div>
+  <div class="crypto-list-header-profit-perc" (click)="onSortProfitPercClick()">
+    Profitto % @if(currentSorting() == 'profitsPerc' || currentSorting() ==
+    'profitsPerc'){<i class="fa-solid fa-caret-down"></i>}
   </div>
 </div>
 
@@ -22,6 +34,11 @@
   <div class="crypto-list-table-ticker">
     {{ coin.ticker }}
   </div>
+
+  <div class="crypto-list-table-current">
+    {{ coin.current | depositsNoDecimal }}
+  </div>
+
   <div class="crypto-list-table-deposit">
     {{ coin.deposits | depositsNoDecimal }}
   </div>

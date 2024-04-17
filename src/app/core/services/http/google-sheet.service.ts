@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IResponseGoogleSheet } from '../../../models/interfaces/IResponseGoogleSheet';
+import { IResponseGoogleSheet } from '../../../models/interfaces/response-google-sheet';
 
 @Injectable({
   providedIn: 'root',
