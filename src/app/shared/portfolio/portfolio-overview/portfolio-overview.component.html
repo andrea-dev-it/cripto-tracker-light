@@ -3,7 +3,11 @@
     <div class="card-logo">
       <div class="card-logo-img1">
         <img
-          src="/assets/img/cripto-logo/btc.png"
+          [src]="
+            '/assets/img/cripto-logo/' +
+            portfolioList()[0].ticker.toLowerCase() +
+            '.png'
+          "
           alt="PAC"
           [ngStyle]="{
               width: '40px',
@@ -11,12 +15,20 @@
             }"
         />
         <img
-          src="/assets/img/cripto-logo/eth.png"
+          [src]="
+            '/assets/img/cripto-logo/' +
+            portfolioList()[1].ticker.toLowerCase() +
+            '.png'
+          "
           alt="PAC"
           [ngStyle]="{ width: '40px', marginRight: '-0.7rem' }"
         />
         <img
-          src="/assets/img/cripto-logo/sol.png"
+          [src]="
+            '/assets/img/cripto-logo/' +
+            portfolioList()[2].ticker.toLowerCase() +
+            '.png'
+          "
           alt="PAC"
           [ngStyle]="{ width: '40px' }"
         />

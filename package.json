@@ -1,10 +1,11 @@
 {
   "name": "cripto-tracker-light",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --configuration=development",
     "start:test": "ng serve --configuration production,test",
+    "build": "ng build --configuration production",
     "build:test": "ng build --configuration production,test",
     "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration=development",

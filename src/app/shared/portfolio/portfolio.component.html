@@ -1,9 +1,7 @@
-<app-loader-spinner [loading]="loading()"></app-loader-spinner>
-@if(!loading()){
 <app-portfolio-overview
   [portfolioStats]="portfolioStats()"
+  [portfolioList]="portfolioListStart"
 ></app-portfolio-overview>
 
 <!-- <div class="crypto-list-title">Portfolio</div> -->
 <app-portfolio-list [portfolioList]="portfolioList()"></app-portfolio-list>
-}

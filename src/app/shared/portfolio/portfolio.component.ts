@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { PortfolioBinancePasquale } from '../../core/services/data/binance-pasquale.service';
+import { ICoin } from '../../models/interfaces/coin';
 import { LoaderSpinnerComponent } from '../loader-spinner/loader-spinner.component';
 import { PortfolioListComponent } from './portfolio-list/portfolio-list.component';
 import { PortfolioOverviewComponent } from './portfolio-overview/portfolio-overview.component';
@@ -19,7 +20,13 @@ import { PortfolioOverviewComponent } from './portfolio-overview/portfolio-overv
 export class PortfolioComponent {
   protected portfolioStats = this.portfolioBinancePasquale.portfolioStats;
   protected portfolioList = this.portfolioBinancePasquale.portfolioList;
-  protected loading = this.portfolioBinancePasquale.isLoading;
+  protected portfolioListStart: ICoin[] = [];
 
-  constructor(private portfolioBinancePasquale: PortfolioBinancePasquale) {}
+  constructor(private portfolioBinancePasquale: PortfolioBinancePasquale) {
+    this.portfolioListStart = [
+      ...this.portfolioBinancePasquale
+        .portfolioList()
+        .sort((a, b) => b.profits - a.profits),
+    ];
+  }
 }

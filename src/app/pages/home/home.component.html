@@ -1,4 +1,7 @@
+<app-loader-spinner [loading]="loading()"></app-loader-spinner>
+@if(!loading()){
 <div class="container">
   <div class="title">Cripto Tracker</div>
   <app-portfolio></app-portfolio>
 </div>
+}

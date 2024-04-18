@@ -5,6 +5,7 @@ import {
   ProfitsNoDecimalPipe,
   ProfitsPercPipe,
 } from '../../../core/pipes/pipes';
+import { ICoin } from '../../../models/interfaces/coin';
 import { IPortfolioStats } from '../../../models/interfaces/portfolio-stats';
 
 @Component({
@@ -21,4 +22,5 @@ import { IPortfolioStats } from '../../../models/interfaces/portfolio-stats';
 })
 export class PortfolioOverviewComponent {
   portfolioStats = input.required<IPortfolioStats>();
+  portfolioList = input.required<ICoin[]>();
 }
