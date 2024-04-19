@@ -6,6 +6,10 @@ Release Schedule
 - Minor release: New features have been added, Optimization. (Backwards compatible)
 - Major version: For Breaking Change, Significant Upgrade. (No Backwards compatible).
 
+# 0.3.2
+
+- Layout improvements
+
 # 0.3.1
 
 - Layout improvements
