@@ -1,1 +1,25 @@
+<div class="buttons-container">
+  <div class="buttons">
+    <div
+      class="buttons-portfolio"
+      (click)="onButtonClick('portfolio')"
+      [ngClass]="{ selected: currentFilter == 'portfolio' }"
+    >
+      Portfolio
+    </div>
+    <div
+      class="buttons-trades"
+      (click)="onButtonClick('trades')"
+      [ngClass]="{ selected: currentFilter == 'trades' }"
+    >
+      Trades
+    </div>
+
+    <div class="extra"></div>
+  </div>
+</div>
+@switch (currentFilter) { @case ('portfolio') {
 <app-overview [portfolioList]="portfolioList()"></app-overview>
+} @case ('trades') {
+<app-trades></app-trades>
+} }

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="info">
+    <div class="info-text">
+      <div class="deposits">
+        <span style="color: #a2a2a2; margin-right: 0.5rem">Trades:</span>
+        {{ tradeListFilter().length }}
+      </div>
+      <div
+        class="deposits total"
+        [ngStyle]="{ color: totalProfit() > 0 ? 'rgb(4, 220, 0)' : 'red' }"
+      >
+        <span style="color: #a2a2a2; margin-right: 0.5rem">Utile:</span>
+        {{ totalProfit() | deposits }}
+      </div>
+    </div>
+
+    <select name="yearList" id="" (change)="onSelectYear($event)">
+      <option value="all" selected>Tutte le date</option>
+      @for(year of yearList(); track year){
+      <option [value]="year">{{ year }}</option>
+      }
+    </select>
+  </div>
+
+  @for(trade of tradeListFilter(); track trade.tradeNum){
+  <div class="card">
+    <div class="card-date">{{ trade?.date | date }}</div>
+    <div class="card-grid">
+      <div class="logo">
+        <img
+          [src]="
+            '/assets/img/cripto-logo/' + trade?.ticker?.toLowerCase() + '.png'
+          "
+        />
+      </div>
+      <div class="name">{{ trade?.crypto }}</div>
+      <div class="ticker">
+        {{ trade?.ticker }}
+        <div class="quantity">{{ trade?.quantity! | formatNumberIt }}</div>
+      </div>
+      <div
+        class="profit"
+        [ngStyle]="{ color: totalProfit() > 0 ? 'rgb(4, 220, 0)' : 'red' }"
+      >
+        {{ trade?.profit! | deposits }}
+      </div>
+
+      <div class="revenue">+ {{ trade?.revenue! | deposits }}</div>
+
+      <div class="purchase">- {{ trade?.purchase! | deposits }}</div>
+    </div>
+  </div>
+  }
+</div>

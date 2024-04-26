@@ -236,3 +236,16 @@ export class RatingLevelPipe implements PipeTransform {
     return level?.slice(0, 2) + '%';
   }
 }
+
+@Pipe({ name: 'formatNumberIt', standalone: true })
+export class FormatNumberItPipe implements PipeTransform {
+  transform(num: number, args?: any): any {
+    const formatter = new Intl.NumberFormat('it-IT', {
+      maximumFractionDigits: 4,
+      minimumFractionDigits: 2,
+      useGrouping: true,
+    });
+
+    return formatter.format(num);
+  }
+}
